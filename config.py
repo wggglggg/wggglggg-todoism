@@ -1,32 +1,30 @@
 import os
 
-
-# 获取当前 config.py文件的系统绝对路径
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
-# 基础配置
-class BasicConfig(object):
-
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'todoism.db')
+class BaseConfig(object):
+    SECRET_KEY = 'adfDG DH lkja sdfpoja s df'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'wggglggg-todoism.data')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-# 开发环境, 依赖基础配置
-class DevelopmentConfig(BasicConfig):
+
+class DevelopmentConfig(BaseConfig):
     pass
 
 
-# 生产环境, 依赖基础配置
-class ProductionConfig(BasicConfig):
+class ProductionConfig(BaseConfig):
     pass
 
 
-# 测试环境
-class TestingConfig(BasicConfig):
-    pass
+class TestingConfig(BaseConfig):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///'
+    WTF_CSRF_ENABLED = False
+
 
 config = {
     'development': DevelopmentConfig,
     'production': ProductionConfig,
-    'testing': TestingConfig
+    'testing': TestingConfig,
 }
