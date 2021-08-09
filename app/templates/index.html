@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,12 +20,12 @@
         const app_page_url = "{{ url_for('app.app') }}";
         const intro_page_url = "{{ url_for('home.intro') }}";
         const new_item_url = "{{ url_for('app.new_item') }}";
-        const default_error_message = '有点小问题';
+        const default_error_message = "{{ _('Oops, something was wrong!') }}";
         const register_url = "{{ url_for('auth.register') }}";
-        const login_error_message = "无效用户名与密码";
+        const login_error_message = '{{ _("Empty username or password!") }}';
         const login_url = "{{ url_for('auth.login') }}";
         const logout_url = "{{ url_for('auth.logout') }}";
-        const empty_body_error_message = '请输入待办事项, 不能为空';
+        const empty_body_error_message = "{{ _('Your todo was empty!') }}";
         const clear_item_url = "{{ url_for('app.clear_items') }}"
     </script>
 </body>

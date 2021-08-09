@@ -1,0 +1,167 @@
+# Translations template for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-08-09 15:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: app/__init__.py:41
+msgid "Bad Request"
+msgstr ""
+
+#: app/__init__.py:45
+msgid "Forbidden"
+msgstr ""
+
+#: app/__init__.py:49
+msgid "Page Not Found"
+msgstr ""
+
+#: app/__init__.py:53
+msgid "Server Error"
+msgstr ""
+
+#: app/blueprints/app.py:27 app/blueprints/app.py:45
+msgid "Invalid item body."
+msgstr ""
+
+#: app/blueprints/app.py:40 app/blueprints/app.py:58 app/blueprints/app.py:71
+msgid "Permission denied."
+msgstr ""
+
+#: app/blueprints/app.py:49
+msgid "Item updated."
+msgstr ""
+
+#: app/blueprints/app.py:62
+msgid "Item deleted."
+msgstr ""
+
+#: app/blueprints/app.py:76
+msgid "Item toggled."
+msgstr ""
+
+#: app/blueprints/app.py:88
+msgid "All clear!"
+msgstr ""
+
+#: app/blueprints/auth.py:24
+msgid "Login success."
+msgstr ""
+
+#: app/blueprints/auth.py:25
+msgid "Invalid username or password."
+msgstr ""
+
+#: app/blueprints/auth.py:34
+msgid "Logout success."
+msgstr ""
+
+#: app/blueprints/auth.py:49
+msgid "Take a paper to him before go home"
+msgstr ""
+
+#: app/blueprints/auth.py:50
+msgid "To get delivery"
+msgstr ""
+
+#: app/blueprints/auth.py:51
+msgid "Watch Olympic tonight"
+msgstr ""
+
+#: app/blueprints/auth.py:52
+msgid "adfadfasdfasdfasd"
+msgstr ""
+
+#: app/blueprints/auth.py:56
+msgid "Generate success."
+msgstr ""
+
+#: app/blueprints/home.py:21
+msgid "Invalid locale"
+msgstr ""
+
+#: app/blueprints/home.py:23
+msgid "Setting updated"
+msgstr ""
+
+#: app/templates/_app.html:6
+msgid "What needs to be done?"
+msgstr ""
+
+#: app/templates/_app.html:12
+msgid "All"
+msgstr ""
+
+#: app/templates/_app.html:16
+msgid "Active"
+msgstr ""
+
+#: app/templates/_app.html:20
+msgid "Done"
+msgstr ""
+
+#: app/templates/_app.html:28
+msgid "Clear"
+msgstr ""
+
+#: app/templates/_intro.html:6
+msgid "We are todoist, we user todoism."
+msgstr ""
+
+#: app/templates/_intro.html:14
+msgid "demo.png"
+msgstr ""
+
+#: app/templates/_intro.html:18
+msgid "Get Started"
+msgstr ""
+
+#: app/templates/_login.html:5
+msgid "Login to Todoism"
+msgstr ""
+
+#: app/templates/_login.html:8
+msgid "Username required"
+msgstr ""
+
+#: app/templates/_login.html:9
+msgid "Password required"
+msgstr ""
+
+#: app/templates/_login.html:11
+msgid "Get a test account"
+msgstr ""
+
+#: app/templates/_login.html:12
+msgid "Login"
+msgstr ""
+
+#: app/templates/_login.html:14
+msgid "Toggle Password"
+msgstr ""
+
+#: app/templates/index.html:23
+msgid "Oops, something was wrong!"
+msgstr ""
+
+#: app/templates/index.html:25
+msgid "Empty username or password!"
+msgstr ""
+
+#: app/templates/index.html:28
+msgid "Your todo was empty!"
+msgstr ""
+

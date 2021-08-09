@@ -3,21 +3,21 @@
 {% block content %}
     <header class="row">
         <input id="item-input" data-herf="{{ url_for('app.new_item') }}" type="text"
-                placeholder="新建待办事项" autocomplete="off" autofocus required>
+                placeholder={{ _("What needs to be done?") }} autocomplete="off" autofocus required>
     </header>
     <div class="row" id="dashboard">
         <div class="col l9 m12 s12">
             <ul class="tabs">
                 <li class="tab col m4 s12">
-                    <a class="blue-text button" id="all-item">All
+                    <a class="blue-text button" id="all-item">{{ _('All') }}
                         <span class="grey-text small-text" id="all_count">{{ all_count }}</span>
                     </a>
                 </li>                <li class="tab col m4 s12">
-                    <a class="blue-text button" id="active-item">Active
+                    <a class="blue-text button" id="active-item">{{ _('Active') }}
                         <span class="grey-text small-text" id="active_count">{{ active_count }}</span>
                     </a>
                 </li>                <li class="tab col m4 s12">
-                    <a class="blue-text button" id="completed-item">Done
+                    <a class="blue-text button" id="completed-item">{{ _('Done') }}
                         <span class="grey-text small-text" id="completed_count">{{ completed_count }}</span>
                     </a>
                 </li>
@@ -25,7 +25,7 @@
         </div>
         <div class="col l3 hide-on-med-and-down">
             <a class="waves-effect waves-light btn red right" id="clear-btn">
-                <i class="material-icons left">clear_all</i>Clear
+                <i class="material-icons left">clear_all</i>{{ _('Clear') }}
             </a>
         </div>
     </div>

@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, jsonify
 from app.models import Item
 from flask_login import current_user, login_required
 from app.extensions import db
+from flask_babel import _
 
 app_bp = Blueprint('app', __name__)
 
@@ -23,7 +24,7 @@ def app():
 def new_item():
     data = request.get_json()
     if data is None and data['body'].strip() == '':
-        return jsonify(message='待办事项数据无效, 请重新输入'), 400
+        return jsonify(message=_('Invalid item body.')), 400
     item = Item(body=data['body'], author=current_user._get_current_object())
     db.session.add(item)
     db.session.commit()
@@ -36,16 +37,16 @@ def new_item():
 def edit_item(item_id):
     item = Item.query.get_or_404(item_id)
     if current_user != item.author:
-        return jsonify(message='没有权限'), 403
+        return jsonify(message=_('Permission denied.')), 403
 
     data = request.get_json()
 
     if data is None or data['body'].strip() == '':
-        return jsonify(message='无效的数据'), 400
+        return jsonify(message=_('Invalid item body.')), 400
 
     item.body = data['body']
     db.session.commit()
-    return jsonify(message='更新成功')
+    return jsonify(message=_('Item updated.'))
 
 
 # 删除某条待办事项
@@ -54,11 +55,11 @@ def edit_item(item_id):
 def delete_item(item_id):
     item = Item.query.get_or_404(item_id)
     if current_user != item.author:
-        return jsonify(message='没有权限'), 403
+        return jsonify(message=_('Permission denied.')), 403
 
     db.session.delete(item)
     db.session.commit()
-    return jsonify(message='待办事项已删除')
+    return jsonify(message=_('Item deleted.'))
 
 
 # 切换待办事项状态(已完成, 未完成)
@@ -67,12 +68,12 @@ def delete_item(item_id):
 def toggle_item(item_id):
     item = Item.query.get_or_404(item_id)
     if current_user != item.author:
-        return jsonify(message='无权限操作'), 403
+        return jsonify(message=_('Permission denied.')), 403
 
     item.done = not item.done
 
     db.session.commit()
-    return jsonify(message='切换状态')
+    return jsonify(message=_('Item toggled.'))
 
 
 # 一皱清除已完成事项
@@ -84,5 +85,5 @@ def clear_items():
         db.session.delete(item)
 
     db.session.commit()
-    return jsonify(message='已完成事项已清除')
+    return jsonify(message=_('All clear!'))
 

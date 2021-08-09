@@ -2,15 +2,15 @@
 
 {% block content %}
     <header class="center">
-        <h4 class="red-text">Login to Todoism</h4>
+        <h4 class="red-text">{{ _('Login to Todoism') }}</h4>
     </header>
     <div class="login-form">
-        <input class="validate login-input" id="username-input" name="username" type="text" placeholder="Username required">
-        <input class="validate login-input" id="password-input" name="password" type="password" placeholder="Password required">
+        <input class="validate login-input" id="username-input" name="username" type="text" placeholder={{ _("Username required") }}>
+        <input class="validate login-input" id="password-input" name="password" type="password" placeholder={{ _("Password required") }}>
         <span class="right">
-            <a class="btn gray" id="register-btn">获取一个临时的用户名</a>
-            <a class="btn red" id="login-btn">Login</a>
+            <a class="btn gray" id="register-btn">{{ _('Get a test account') }}</a>
+            <a class="btn red" id="login-btn">{{ _('Login') }}</a>
         </span>
-        <p><a class="blue-text link button left" id="toggle-password">Toggle Password</a></p>
+        <p><a class="blue-text link button left" id="toggle-password">{{ _('Toggle Password') }}</a></p>
     </div>
 {% endblock %}

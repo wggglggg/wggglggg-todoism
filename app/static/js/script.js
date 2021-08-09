@@ -407,6 +407,21 @@ $(document).ready(function () {
 
     $(document).on('click', '#all-item', display_all_items);
 
+    // 切换语言
+    function lang_btn() {
+        $.ajax({
+            type: 'GET',
+            url: $(this).data('href'),
+            success: function (data) {
+                $(window).trigger('hashchange');
+                activeM();
+                M.toast({html: data.message});
+            }
+        });
+    }
+
+    $(document).on('click', '.lang-btn',lang_btn);
+
 
     activeM();  // initialize Materialize
 });

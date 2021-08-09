@@ -1,0 +1,168 @@
+# Chinese (Simplified, China) translations for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-08-09 15:24+0800\n"
+"PO-Revision-Date: 2021-08-09 15:24+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_Hans_CN\n"
+"Language-Team: zh_Hans_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: app/__init__.py:41
+msgid "Bad Request"
+msgstr "无效请求"
+
+#: app/__init__.py:45
+msgid "Forbidden"
+msgstr "禁止访问"
+
+#: app/__init__.py:49
+msgid "Page Not Found"
+msgstr "无效页面"
+
+#: app/__init__.py:53
+msgid "Server Error"
+msgstr "服务器故障"
+
+#: app/blueprints/app.py:27 app/blueprints/app.py:45
+msgid "Invalid item body."
+msgstr "无效事项"
+
+#: app/blueprints/app.py:40 app/blueprints/app.py:58 app/blueprints/app.py:71
+msgid "Permission denied."
+msgstr "权限错误"
+
+#: app/blueprints/app.py:49
+msgid "Item updated."
+msgstr "事项已更新"
+
+#: app/blueprints/app.py:62
+msgid "Item deleted."
+msgstr "事项已删除"
+
+#: app/blueprints/app.py:76
+msgid "Item toggled."
+msgstr "事项状态已更新"
+
+#: app/blueprints/app.py:88
+msgid "All clear!"
+msgstr "全部清理完毕"
+
+#: app/blueprints/auth.py:24
+msgid "Login success."
+msgstr "登录成功"
+
+#: app/blueprints/auth.py:25
+msgid "Invalid username or password."
+msgstr "错误的用户名或密码"
+
+#: app/blueprints/auth.py:34
+msgid "Logout success."
+msgstr "已退出"
+
+#: app/blueprints/auth.py:49
+msgid "Take a paper to him before go home"
+msgstr "回家前送测试纸"
+
+#: app/blueprints/auth.py:50
+msgid "To get delivery"
+msgstr "送快递"
+
+#: app/blueprints/auth.py:51
+msgid "Watch Olympic tonight"
+msgstr "今晚观看奥运"
+
+#: app/blueprints/auth.py:52
+msgid "adfadfasdfasdfasd"
+msgstr "adfadfasdfasdfasd"
+
+#: app/blueprints/auth.py:56
+msgid "Generate success."
+msgstr "已生成"
+
+#: app/blueprints/home.py:21
+msgid "Invalid locale"
+msgstr "无效的区域选项"
+
+#: app/blueprints/home.py:23
+msgid "Setting updated"
+msgstr "设置已更新"
+
+#: app/templates/_app.html:6
+msgid "What needs to be done?"
+msgstr "新建待办事项"
+
+#: app/templates/_app.html:12
+msgid "All"
+msgstr "全部"
+
+#: app/templates/_app.html:16
+msgid "Active"
+msgstr "未完成"
+
+#: app/templates/_app.html:20
+msgid "Done"
+msgstr "已完成"
+
+#: app/templates/_app.html:28
+msgid "Clear"
+msgstr "清除已完成"
+
+#: app/templates/_intro.html:6
+msgid "We are todoist, we user todoism."
+msgstr "我们是Todo爱好者，我们使用Todoism。"
+
+#: app/templates/_intro.html:14
+msgid "demo.png"
+msgstr "demo_zh.png"
+
+#: app/templates/_intro.html:18
+msgid "Get Started"
+msgstr "开始使用"
+
+#: app/templates/_login.html:5
+msgid "Login to Todoism"
+msgstr "登录到Todo"
+
+#: app/templates/_login.html:8
+msgid "Username required"
+msgstr "填写用户名"
+
+#: app/templates/_login.html:9
+msgid "Password required"
+msgstr "填写密码"
+
+#: app/templates/_login.html:11
+msgid "Get a test account"
+msgstr "获取一个测试账号"
+
+#: app/templates/_login.html:12
+msgid "Login"
+msgstr "登录"
+
+#: app/templates/_login.html:14
+msgid "Toggle Password"
+msgstr "密码显示开关"
+
+#: app/templates/index.html:23
+msgid "Oops, something was wrong!"
+msgstr "出错了...有点小问题"
+
+#: app/templates/index.html:25
+msgid "Empty username or password!"
+msgstr "用户名与密码不能为空!"
+
+#: app/templates/index.html:28
+msgid "Your todo was empty!"
+msgstr "事项内容不能为空!"
+

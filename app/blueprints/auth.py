@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, redirect, url_for, request, jsonif
 from flask_login import current_user, login_user, login_required, logout_user
 from app.models import User, Item
 from app.extensions import fake, db
+from flask_babel import _
 
 auth_bp = Blueprint('auth', __name__)
 
@@ -20,8 +21,8 @@ def login():
 
         if user is not None and user.validate_password(password):
             login_user(user)
-            return jsonify(message='登录成功')
-        return jsonify(message='用户名或者密码错误'), 400
+            return jsonify(message=_('Login success.'))
+        return jsonify(message=_('Invalid username or password.')), 400
 
     return render_template('_login.html')
 
@@ -30,7 +31,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return jsonify(message='已经退出.')
+    return jsonify(message=_('Logout success.'))
 
 
 @auth_bp.route('/register')
@@ -45,11 +46,11 @@ def register():
     db.session.add(user)
     db.session.commit()
 
-    item = Item(body='下班给人送螺旋杆菌检测纸', author=user)
-    item2 = Item(body='取门卫快递', author=user)
-    item3 = Item(body='晚上有女排奥运决赛', author=user)
-    item4 = Item(body='adfadfasdfasdfasd', author=user, done=True)
+    item = Item(body=_('Take a paper to him before go home'), author=user)
+    item2 = Item(body=_('To get delivery'), author=user)
+    item3 = Item(body=_('Watch Olympic tonight'), author=user)
+    item4 = Item(body=_('adfadfasdfasdfasd'), author=user, done=True)
     db.session.add_all([item, item2, item3, item4])
     db.session.commit()
 
-    return jsonify(username=username, password=password, message='注册成功')
+    return jsonify(username=username, password=password, message=_('Generate success.'))

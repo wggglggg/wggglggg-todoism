@@ -7,7 +7,7 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, index=True)
     password_hash = db.Column(db.String(128))
-    locale = db.Column(db.String(20))
+    locale = db.Column(db.String(20))                       # 区域字段  多语言支持
     items = db.relationship('Item', back_populates='author', cascade='all')
 
     def set_password(self, password):
