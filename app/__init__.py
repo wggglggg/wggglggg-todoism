@@ -1,5 +1,6 @@
 import os
 import click
+import pytz
 
 from app.extensions import db, login_manager, csrf, babel
 from flask import Flask, render_template
@@ -8,7 +9,6 @@ from config import config
 from app.blueprints.home import home_bp
 from app.blueprints.auth import auth_bp
 from app.blueprints.app import app_bp
-
 
 
 def create_app(config_name=None):
@@ -21,6 +21,7 @@ def create_app(config_name=None):
     register_extensions(app)
     register_blueprints(app)
     register_commands(app)
+    register_template_context(app)
     return app
 
 
@@ -35,6 +36,13 @@ def register_blueprints(app):
     app.register_blueprint(home_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(app_bp)
+
+
+def register_template_context(app):
+    @app.context_processor
+    def inject_info():
+        timezones = pytz.all_timezones
+        return dict(timezones=timezones)
 
 
 def register_errors(app):

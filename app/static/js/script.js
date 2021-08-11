@@ -422,6 +422,19 @@ $(document).ready(function () {
 
     $(document).on('click', '.lang-btn',lang_btn);
 
+    // 切换时区
+    function timezone_btn() {
+        $.ajax({
+            type: 'GET',
+            url: $(this).data('href'),
+            success: function (data) {
+                activeM();
+                M.toast({html: data.message})
+            }
+        });
+    }
+
+    $(document).on('click', '.timezone-btn', timezone_btn);
 
     activeM();  // initialize Materialize
 });

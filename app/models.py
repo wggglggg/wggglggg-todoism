@@ -1,6 +1,7 @@
 from app.extensions import db
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
 
 class User(UserMixin, db.Model):
@@ -8,6 +9,8 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(20), unique=True, index=True)
     password_hash = db.Column(db.String(128))
     locale = db.Column(db.String(20))                       # 区域字段  多语言支持
+    timezone = db.Column(db.String(128))                    # 当地时间
+
     items = db.relationship('Item', back_populates='author', cascade='all')
 
     def set_password(self, password):
@@ -21,5 +24,7 @@ class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.Text)
     done = db.Column(db.Boolean, default=False)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     author = db.relationship('User', back_populates='items')

@@ -22,6 +22,11 @@
                     <i class="material-icons">language</i>         <!--语言下拉菜单-->
                 </a>
             </li>
+            <li>
+                <a class="waves-effect waves-light dropdown-trigger" id="timezone-dropdown-btn" data-target="timezone-dropdown">
+                    <i class="material-icons">access_time</i>         <!--语言下拉菜单-->
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -45,6 +50,13 @@
     <li>
         <a class="lang-btn" data-href="{{ url_for('home.set_locale', locale="en_US") }}">English</a>
     </li>
+</ul>
+<ul id="timezone-dropdown" class="dropdown-content">
+    {% for timezone in timezones %}
+        <li>
+            <a class="timezone-btn {% if current_user.timezone == timezone %}active{% endif %}" data-href="{{ url_for('home.set_timezone', timezone=timezone) }}">{{ timezone }}</a>
+        </li>
+    {% endfor %}
 </ul>
 
 <main>
