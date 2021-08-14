@@ -3,12 +3,13 @@ import click
 import pytz
 
 from app.extensions import db, login_manager, csrf, babel
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 from flask_babel import _
 from config import config
 from app.blueprints.home import home_bp
 from app.blueprints.auth import auth_bp
 from app.blueprints.app import app_bp
+from app.apis.v1 import api_v1
 
 
 def create_app(config_name=None):
@@ -29,6 +30,7 @@ def register_extensions(app):
     db.init_app(app)
     login_manager.init_app(app)
     csrf.init_app(app)
+    csrf.exempt(api_v1)     # api不需要CSRF保护, 不便于前后商数据交换,exempt()去除保护
     babel.init_app(app)
 
 
@@ -36,6 +38,10 @@ def register_blueprints(app):
     app.register_blueprint(home_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(app_bp)
+    app.register_blueprint(api_v1, url_prefix='/api/v1')
+    # 相当于 127.0.0.1：5000／api/v1/xxxxx
+    # app.register_blueprint(api_v1, url_prefix='/v1', subdomain='api')
+    # 相当于 api.example.com
 
 
 def register_template_context(app):
@@ -51,15 +57,35 @@ def register_errors(app):
         return render_template('errors.html', code=400, info=_('Bad Request')), 400
 
     @app.errorhandler(403)
-    def bad_request():
+    def forbidden():
         return render_template('errors.html', code=403, info=_('Forbidden')), 403
 
     @app.errorhandler(404)
-    def bad_request():
+    def page_not_found():           # 如果请求头里Content-Type期待返回的是什么内容类型
+        if request.accept_mimetypes.accept_json and \
+                not request.accept_mimetypes.accept_html \
+                or request.path.startswith('api'):
+            response = jsonify(code=404, message='The requested URL was not found on the server')
+            response.status_code = 404
+            return response
+
         return render_template('errors.html', code=404, info=_('Page Not Found')), 404
 
+    @app.errorhandler(405)
+    def method_not_allowed():
+        response = jsonify(code=405, message='The method is not allowed for the requested URL.')
+        response.status_code = 405
+        return response
+
     @app.errorhandler(500)
-    def bad_request():
+    def internal_server_error():
+        if request.accept_mimetypes.accept_json and \
+                not request.accept_mimetypes.accept_html or \
+                request.host.startswith('api'):
+            response = jsonify(code=500, message='An internal server error occurred')
+            response.status_code = 500
+            return response
+
         return render_template('errors.html', code=500, info=_('Server Error')), 500
 
 
